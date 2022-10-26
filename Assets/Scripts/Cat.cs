@@ -25,11 +25,6 @@ public class Cat : MonoBehaviour {
 		if (Input.GetButtonDown ("Jump") && !isDead && rb.velocity.y == 0)
 			rb.AddForce (Vector2.up * 600f);
 
-		//if (Input.GetKey (KeyCode.LeftShift))
-		//	moveSpeed = 10f;
-		//else
-		//	moveSpeed = 5f;
-
 		SetAnimationState();
 
 		if (!isDead)
