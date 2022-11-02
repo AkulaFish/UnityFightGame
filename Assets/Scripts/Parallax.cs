@@ -5,7 +5,7 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     public float multiplier;
-    public GameObject camera;
+    public GameObject mainCamera;
     private Vector3 startPosition;
     public bool isInfinite;
     private float lenght;
@@ -25,11 +25,11 @@ public class Parallax : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(startPosition.x - 2 + (multiplier + camera.transform.position.x), transform.position.y, transform.position.z);
+        transform.position = new Vector3(startPosition.x - 2 + (multiplier + mainCamera.transform.position.x), transform.position.y, transform.position.z);
 
         if (isInfinite)
         {
-            float tmp = camera.transform.position.x + (1 - multiplier);
+            float tmp = mainCamera.transform.position.x + (1 - multiplier);
 
             if (tmp > startPosition.x + lenght)
             {
