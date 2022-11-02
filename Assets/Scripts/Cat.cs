@@ -7,7 +7,6 @@ public class Cat : MonoBehaviour {
 	Rigidbody2D rb;
 	Animator anim;
 	float dirX, moveSpeed = 7f;
-	int  healthPoints = 3;
 	bool isHurting, isDead;
 	bool facingRight = true;
 	Vector3 localScale;
@@ -98,35 +97,35 @@ public class Cat : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter2D (Collider2D col)
-	{
-		if (col.gameObject.name.Equals ("Fire")) {
-			healthPoints -= 1;
-		}
+	//void OnTriggerEnter2D (Collider2D col)
+	//{
+	//	if (col.gameObject.name.Equals ("Fire")) {
+	//		healthPoints -= 1;
+	//	}
 
-		if (col.gameObject.name.Equals ("Fire") && healthPoints > 0) {
-			anim.SetTrigger ("hurt");
-			StartCoroutine ("Hurt");
-		} else {
-			dirX = 0;
-			isDead = true;
-			anim.SetTrigger ("dead");
-		}
-	}
+	//	if (col.gameObject.name.Equals ("Fire") && healthPoints > 0) {
+	//		anim.SetTrigger ("hurt");
+	//		StartCoroutine ("Hurt");
+	//	} else {
+	//		dirX = 0;
+	//		isDead = true;
+	//		anim.SetTrigger ("dead");
+	//	}
+	//}
 
-	IEnumerator Hurt()
-	{
-		isHurting = true;
-		rb.velocity = Vector2.zero;
+	//IEnumerator Hurt()
+	//{
+	//	isHurting = true;
+	//	rb.velocity = Vector2.zero;
 
-		if (facingRight)
-			rb.AddForce (new Vector2(-300f, 300f));
-		else
-			rb.AddForce (new Vector2(300f, 300f));
+	//	if (facingRight)
+	//		rb.AddForce (new Vector2(-300f, 300f));
+	//	else
+	//		rb.AddForce (new Vector2(300f, 300f));
 		
-		yield return new WaitForSeconds (0.5f);
+	//	yield return new WaitForSeconds (0.5f);
 
-		isHurting = false;
-	}
+	//	isHurting = false;
+	//}
 
 }
